@@ -46,12 +46,20 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!-- 适用于命令行和桌面工具-->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-server</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- 适合于 sse 和 http-->
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
             <version>1.0.0</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.apache.poi</groupId>
