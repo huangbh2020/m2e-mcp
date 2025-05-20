@@ -1,0 +1,8 @@
+spring:
+  ai:
+    mcp:
+      server:
+        name: mcp-server
+        version: 1.0.0
+#        type: ASYNC
+#        sse-message-endpoint: /mcp/messages
