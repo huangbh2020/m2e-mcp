@@ -2,6 +2,7 @@ package com.hbh.m2emcp.service;
 
 import com.hbh.m2emcp.utils.MarkdownUtils;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -21,6 +22,9 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
 
     @Resource
     private MarkdownUtils markerUtils;
+
+    @Value("${app.base-url}")
+    private String baseUrl;
 
     private final static String DEFAULT_DIR = "D:\\mcp-doc";
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
@@ -60,9 +64,7 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
         } catch (Exception e) {
             throw new RuntimeException("生成 Excel 文件失败", e);
         }
-
         // 安全拼接路径
-        File fullPath = new File(dir, actualFileName);
-        return "文件路径：" + fullPath.getAbsolutePath();
+        return "下载地址："+baseUrl+"/download/"+ actualFileName;
     }
 }

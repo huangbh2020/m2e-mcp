@@ -1,8 +1,12 @@
+server:
+  port: 8888
 spring:
   ai:
     mcp:
       server:
         name: mcp-server
         version: 1.0.0
+app:
+  base-url: http://112.74.171.115:8888
 #        type: ASYNC
 #        sse-message-endpoint: /mcp/messages
