@@ -17,10 +17,11 @@ public class DownloadController {
 
     private final static String DEFAULT_DIR = "D:\\mcp-doc";
     @GetMapping("/download/{filename}")
-    public ResponseEntity downloadFile(@PathVariable String filename) {
+    public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
         // 构建文件路径
         String dirPath = System.getProperty("os.name").toLowerCase().contains("win") ? DEFAULT_DIR : "/mcp-doc";
-        Path filePath = Paths.get(dirPath).resolve(filename).normalize();
+        String fileName = filename+".xlsx";
+        Path filePath = Paths.get(dirPath).resolve(fileName).normalize();
         Resource resource;
 
         try {

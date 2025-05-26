@@ -25,8 +25,7 @@ public class Markdown2OtherMcp {
      * @return {@link String }
      */
     @Tool(description = "把markdown表格转换成excel")
-    public String changeToExcel(@ToolParam(description="markdown字符串")String markdownStr,
-                                 @ToolParam(description="xlsx格式的excel文件名称")String fileName) {
-       return markdown2OtherService.mark2Excel(markdownStr,fileName);
+    public String changeToExcel(@ToolParam(description="markdown字符串")String markdownStr) {
+       return markdown2OtherService.mark2Excel(markdownStr);
     }
 }

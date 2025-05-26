@@ -30,13 +30,10 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
     @Override
-    public String mark2Excel(String markdownStr, String fileName) {
+    public String mark2Excel(String markdownStr) {
         // 参数校验
         if (markdownStr == null || markdownStr.trim().isEmpty()) {
             throw new IllegalArgumentException("Markdown 内容不能为空");
-        }
-        if (fileName == null || fileName.trim().isEmpty()) {
-            throw new IllegalArgumentException("文件名不能为空");
         }
 
         // 解析表格
@@ -54,17 +51,14 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
 
         // 添加时间戳防止重名
         String timestamp = LocalDateTime.now().format(TIME_FORMATTER);
-        String actualFileName = fileName.contains(".")
-            ? fileName.replaceFirst("\\.(?=[^\\.]+$)", "_" + timestamp + ".")
-            : fileName + "_" + timestamp + ".xlsx";
 
         // 创建 Excel
         try {
-            markerUtils.createExcel(actualFileName, dirPath, lists);
+            markerUtils.createExcel(timestamp + ".xlsx", dirPath, lists);
         } catch (Exception e) {
             throw new RuntimeException("生成 Excel 文件失败", e);
         }
         // 安全拼接路径
-        return "下载地址："+baseUrl+"/download/"+ actualFileName;
+        return "下载地址："+baseUrl+"/download/"+ timestamp;
     }
 }

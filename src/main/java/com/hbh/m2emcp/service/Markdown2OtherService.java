@@ -14,5 +14,5 @@ public interface Markdown2OtherService {
      * @param markdownStr Markdown str
      * @return String
      */
-    String mark2Excel(String markdownStr,String fileName);
+    String mark2Excel(String markdownStr);
 }
