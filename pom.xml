@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hbh</groupId>
     <artifactId>m2e-mcp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>m2e-mcp</name>
     <description>m2e-mcp</description>
     <url/>

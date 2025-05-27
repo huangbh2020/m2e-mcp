@@ -1,12 +1,16 @@
 server:
   port: 8888
+  servlet:
+#    # 应用的访问路径
+    context-path: /m2o
 spring:
   ai:
     mcp:
       server:
         name: mcp-server
         version: 1.0.0
-app:
-  base-url: http://112.74.171.115:8888
+        base-url: /m2o
 #        type: ASYNC
-#        sse-message-endpoint: /mcp/messages
+#        sse-message-endpoint: /m2o/messages
+app:
+  base-url: https://www.icanshock.fun

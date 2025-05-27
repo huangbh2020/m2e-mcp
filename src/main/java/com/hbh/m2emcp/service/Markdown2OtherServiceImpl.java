@@ -26,6 +26,9 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
     @Value("${app.base-url}")
     private String baseUrl;
 
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
+
     private final static String DEFAULT_DIR = "D:\\mcp-doc";
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
@@ -59,6 +62,6 @@ public class Markdown2OtherServiceImpl implements Markdown2OtherService {
             throw new RuntimeException("生成 Excel 文件失败", e);
         }
         // 安全拼接路径
-        return "下载地址："+baseUrl+"/download/"+ timestamp;
+        return "下载地址："+baseUrl+contextPath+"/download/"+ timestamp;
     }
 }

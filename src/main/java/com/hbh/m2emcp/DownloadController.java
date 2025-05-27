@@ -1,5 +1,6 @@
 package com.hbh.m2emcp;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -12,8 +13,16 @@ import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * 下载 Controller
+ *
+ * @author huangbh
+ * @date 2025/05/27
+ */
 @RestController
 public class DownloadController {
+
+
 
     private final static String DEFAULT_DIR = "D:\\mcp-doc";
     @GetMapping("/download/{filename}")
